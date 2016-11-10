@@ -25,6 +25,33 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+// Load all the players sprites, into an array, for future features
+// (like random player or possibility to choose one)
+// create the starting coordinates on //bottom middle of the canvas.
+// I structured the Player class like this:
+// Player = function(){
+//   player.sprite -> player image url
+//   player.x -> current x coordinate
+//   player.y -> current y coordinate
+//   player.moveX -> how much the player move on the x-axis
+//   player.moveY -> how much the player move on the y-axis
+// }
+// I base the movements on the render function inside 'js/engine.js'
+//(row 135 ->  ... ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83); ...)
+
+var Player = function(){
+  var playerSprites = ["images/char-boy.png", "images/char-cat-girl.png", "images/char-horn-girl.png", "images/char-pink-girl.png", "images/char-princess-girl.png"];
+  var canvasWidth = 505,
+    canvasHeight = 606,
+    playerSpriteWidth = 101,
+    playerSpriteHeight = 171;
+
+  this.sprite = playerSprites[0];
+  this.x = canvasWidth / 2 - playerSpriteWidth / 2;
+  this.y = canvasHeight - (playerSpriteHeight + 50); // I tryed to recreate the same coordinate from the demo video, I guess the y using pixelmator, hope this works fine for the submission
+  this.moveX = 101;
+  this.moveY = 83;
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
