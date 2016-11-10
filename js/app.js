@@ -116,6 +116,9 @@ Player.prototype.handleInput = function(key){
   player.render();
 };
 
+Player.prototype.collisionCheck = function(enemiesList) {
+
+};
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
