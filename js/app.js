@@ -10,6 +10,9 @@ var Enemy = function(speed,lineN) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     var startX = 53;
+
+    this.width = 101;
+    this.height = 171;
     this.startY = startX + (lineN - 1) * 83;
     this.startX = -101;
     this.x = this.startX;
@@ -62,13 +65,13 @@ Enemy.prototype.render = function() {
 var Player = function(){
   var playerSprites = ["images/char-boy.png", "images/char-cat-girl.png", "images/char-horn-girl.png", "images/char-pink-girl.png", "images/char-princess-girl.png"];
   var canvasWidth = 505,
-    canvasHeight = 606,
-    playerSpriteWidth = 101,
-    playerSpriteHeight = 171;
+    canvasHeight = 606;
 
+  this.width = 101;
+  this.height = 171;
   this.sprite = playerSprites[0];
-  this.startX = canvasWidth / 2 - playerSpriteWidth / 2;
-  this.startY = canvasHeight - (playerSpriteHeight + 50); // I tryed to recreate the same coordinate from the demo video, I guess the y using pixelmator, hope this works fine for the submission
+  this.startX = canvasWidth / 2 - this.width / 2;
+  this.startY = canvasHeight - (this.height + 50); // I tryed to recreate the same coordinate from the demo video, I guess the y using pixelmator, hope this works fine for the submission
   this.x = this.startX;
   this.y = this.startY;
   this.moveX = 101;
@@ -80,12 +83,10 @@ Player.prototype.render = function(){
 };
 
 Player.prototype.update = function(X,Y){
-  //console.log("update player");
   console.log("x: "+this.x+" y: "+this.y);
 };
 
 Player.prototype.handleInput = function(key){
-  //console.log(key);
   var x = this.x
     y = this.y;
   switch(key){
