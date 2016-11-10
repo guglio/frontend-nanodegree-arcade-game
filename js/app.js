@@ -1,3 +1,10 @@
+// function to randomize the speed value everytime enemies start "spawn"
+function enemySpeed() {
+  min = 100;
+  max = 500;
+  return Math.random() * (max - min) + min;
+};
+
 // Enemies our player must avoid
 var Enemy = function(speed,lineN) {
     // Variables applied to each of our instances go here,
