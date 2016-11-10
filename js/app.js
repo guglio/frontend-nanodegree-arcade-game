@@ -31,6 +31,8 @@ Enemy.prototype.render = function() {
 // I structured the Player class like this:
 // Player = function(){
 //   player.sprite -> player image url
+//   player.startX -> starting x coordinate
+//   player.startY -> starting y coordinate
 //   player.x -> current x coordinate
 //   player.y -> current y coordinate
 //   player.moveX -> how much the player move on the x-axis
@@ -47,8 +49,10 @@ var Player = function(){
     playerSpriteHeight = 171;
 
   this.sprite = playerSprites[0];
-  this.x = canvasWidth / 2 - playerSpriteWidth / 2;
-  this.y = canvasHeight - (playerSpriteHeight + 50); // I tryed to recreate the same coordinate from the demo video, I guess the y using pixelmator, hope this works fine for the submission
+  this.startX = canvasWidth / 2 - playerSpriteWidth / 2;
+  this.startY = canvasHeight - (playerSpriteHeight + 50); // I tryed to recreate the same coordinate from the demo video, I guess the y using pixelmator, hope this works fine for the submission
+  this.x = this.startX;
+  this.y = this.startY;
   this.moveX = 101;
   this.moveY = 83;
 };
@@ -85,8 +89,8 @@ Player.prototype.handleInput = function(key){
   if ( y > 385 )
     y = this.y;
   if ( y < -30 ){
-    y = 385;
-    x = 202;
+    y = this.startY;
+    x = this.startX;
   }
 
   this.x = x;
