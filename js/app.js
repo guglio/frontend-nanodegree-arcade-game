@@ -26,6 +26,12 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    var x = this.x + this.speed * dt;
+    if ( x > 404 ){
+      x = this.startX;
+      this.speed = enemySpeed();
+    }
+    this.x = x;
 };
 
 // Draw the enemy on the screen, required method for game
