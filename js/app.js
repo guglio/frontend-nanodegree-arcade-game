@@ -100,7 +100,7 @@ Player.prototype.handleInput = function(key){
     x = this.x;
   if ( y > 385 )
     y = this.y;
-  if ( y < -30 ){
+  if ( y < 53 ){
     y = this.startY;
     x = this.startX;
   }
