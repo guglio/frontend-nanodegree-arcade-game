@@ -80,6 +80,15 @@ Player.prototype.handleInput = function(key){
       x += this.moveX;
       break;
   }
+  if ( x < 0 || x > 404 )
+    x = this.x;
+  if ( y > 385 )
+    y = this.y;
+  if ( y < -30 ){
+    y = 385;
+    x = 202;
+  }
+
   this.x = x;
   this.y = y;
   player.render();
