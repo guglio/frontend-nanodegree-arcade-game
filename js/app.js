@@ -27,7 +27,7 @@ Enemy.prototype.render = function() {
 
 // Load all the players sprites, into an array, for future features
 // (like random player or possibility to choose one)
-// create the starting coordinates on //bottom middle of the canvas.
+// create the starting coordinates on bottom middle of the canvas.
 // I structured the Player class like this:
 // Player = function(){
 //   player.sprite -> player image url
@@ -55,6 +55,11 @@ var Player = function(){
 
 Player.prototype.render = function(){
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+Player.prototype.update = function(X,Y){
+  //console.log("update player");
+  console.log("x: "+this.x+" y: "+this.y);
 };
 
 // Now instantiate your objects.
