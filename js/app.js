@@ -5,6 +5,22 @@ function enemySpeed() {
   return Math.random() * (max - min) + min;
 };
 
+var Hearts = function(){
+  var canvasWidth = 505,
+    canvasHeight = 606;
+  this.sprite = 'images/mini-Heart.png';
+  this.width = 30;
+  this.height = 30;
+  this.startX = 5;
+  this.startY = canvasHeight - (this.height + 25); // I tryed to recreate the same coordinate from the demo video, I guess the y using pixelmator, hope this works fine for the submission
+  this.x = this.startX;
+  this.y = this.startY;
+};
+
+Hearts.prototype.render = function(n){
+  for (var i = 0; i < n; i++ )
+    ctx.drawImage(Resources.get(this.sprite), this.x + this.width*i, this.y);
+};
 // Enemies our player must avoid
 var Enemy = function(speed,lineN) {
     // Variables applied to each of our instances go here,
@@ -146,7 +162,7 @@ var allEnemies = [
 ];
 
 var player = new Player();
-
+var hearts = new Hearts();
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
