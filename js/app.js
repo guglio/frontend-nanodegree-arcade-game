@@ -30,7 +30,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     var x = this.x + this.speed * dt;
-    if ( x > 404 ){
+    if ( x > 505 ){
       x = this.startX;
       this.speed = enemySpeed();
     }
@@ -51,7 +51,9 @@ Enemy.prototype.render = function() {
 // create the starting coordinates on bottom middle of the canvas.
 // I structured the Player class like this:
 // Player = function(){
-//   player.sprite -> player image url
+//   player.playerSprites -> array for random player image on new game
+//   player.offset -> transparent zone (left and right) of the image
+//   player.sprite -> player image url (random)
 //   player.startX -> starting x coordinate
 //   player.startY -> starting y coordinate
 //   player.x -> current x coordinate
@@ -67,9 +69,11 @@ var Player = function(){
   var canvasWidth = 505,
     canvasHeight = 606;
 
+  this.playerSprites = playerSprites;
+  this.offset = 17;
   this.width = 101;
   this.height = 171;
-  this.sprite = playerSprites[0];
+  this.sprite = this.playerSprites[Math.floor(Math.random()*5)];
   this.startX = canvasWidth / 2 - this.width / 2;
   this.startY = canvasHeight - (this.height + 50); // I tryed to recreate the same coordinate from the demo video, I guess the y using pixelmator, hope this works fine for the submission
   this.x = this.startX;
@@ -82,8 +86,7 @@ Player.prototype.render = function(){
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.update = function(X,Y){
-  console.log("x: "+this.x+" y: "+this.y);
+Player.prototype.update = function(){
 };
 
 Player.prototype.handleInput = function(key){
@@ -118,7 +121,6 @@ Player.prototype.handleInput = function(key){
 };
 
 Player.prototype.collisionCheck = function(enemiesList) {
-
 };
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
