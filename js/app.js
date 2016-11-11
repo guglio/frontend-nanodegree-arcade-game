@@ -87,6 +87,8 @@ Player.prototype.render = function(){
 };
 
 Player.prototype.update = function(){
+  if(this.y <= 219 && this.y >= 53)
+    this.collisionCheck(allEnemies);
 };
 
 Player.prototype.handleInput = function(key){
