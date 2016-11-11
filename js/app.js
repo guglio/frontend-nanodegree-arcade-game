@@ -130,6 +130,14 @@ Player.prototype.render = function(){
   gems.render(this.gems);
 };
 
+Player.prototype.reset = function(){
+  this.sprite = this.playerSprites[Math.floor(Math.random()*5)];
+  this.x = this.startX;
+  this.y = this.startY;
+  this.lives = this.startLives;
+  this.gems = this.startGems;
+};
+
 Player.prototype.update = function(){
   if(this.y <= 219 && this.y >= 53)
     this.collisionCheck(allEnemies);
