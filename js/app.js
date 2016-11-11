@@ -209,3 +209,12 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+Player.prototype.cheat = function(){
+  if((this.lives + 10) > 13){
+    this.lives = 13;
+    console.log("Maybe too many hearts...don't exagerate ;)");
+  }
+  else {
+    this.lives += 10;
+  }
+}
