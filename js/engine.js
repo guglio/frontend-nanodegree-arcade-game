@@ -19,6 +19,15 @@ var Engine = (function(global) {
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
      */
+     document.addEventListener('keydown', function(e) {
+
+        if(e.keyCode && (player.lives == 0) || (player.gems == 3)){
+          win.requestAnimationFrame(main);
+          player.reset();
+        }
+
+
+     });
     var doc = global.document,
         win = global.window,
         canvas = doc.createElement('canvas'),
@@ -52,7 +61,7 @@ var Engine = (function(global) {
          * for the next time this function is called.
          */
         lastTime = now;
-        
+
         if (player.lives == 0) {
               ctx.font = '25pt sans-serif';
               ctx.fillStyle = 'black';
