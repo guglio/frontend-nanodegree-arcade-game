@@ -60,6 +60,8 @@ Enemy.prototype.render = function() {
 //   player.y -> current y coordinate
 //   player.moveX -> how much the player move on the x-axis
 //   player.moveY -> how much the player move on the y-axis
+//   player.startLives -> starting lives of player
+//   player.lives -> lives of player
 // }
 // I base the movements on the render function inside 'js/engine.js'
 //(row 135 ->  ... ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83); ...)
@@ -80,6 +82,8 @@ var Player = function(){
   this.y = this.startY;
   this.moveX = 101;
   this.moveY = 83;
+  this.startLives = 3;
+  this.lives = this.startLives;
 };
 
 Player.prototype.render = function(){
