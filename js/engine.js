@@ -52,7 +52,29 @@ var Engine = (function(global) {
          * for the next time this function is called.
          */
         lastTime = now;
-
+        
+        if (player.lives == 0) {
+              ctx.font = '25pt sans-serif';
+              ctx.fillStyle = 'black';
+              ctx.fillRect(78, 200, 350, 200);
+              ctx.globalAlpha = 1;
+              ctx.fillStyle = 'white';
+              ctx.fillText('GAME OVER!', 155, 285);
+              ctx.font = '16pt sans-serif';
+              ctx.fillText('Press any key to Play Again', 117, 350);
+          }
+          else if(player.gems == 3){
+            ctx.font = '25pt sans-serif';
+            ctx.fillStyle = 'black';
+            ctx.fillRect(78, 200, 350, 200);
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = 'white';
+            ctx.fillText('Congratulation!', 155, 285);
+            ctx.fillText('You Won', 195,325);
+            ctx.font = '16pt sans-serif';
+            ctx.fillText('Press any key to Play Again', 117, 380);
+          }
+          else
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
