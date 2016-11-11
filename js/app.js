@@ -104,6 +104,7 @@ var Player = function(){
 
 Player.prototype.render = function(){
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  hearts.render(this.lives);
 };
 
 Player.prototype.update = function(){
