@@ -96,6 +96,8 @@ Enemy.prototype.render = function() {
 //   player.moveY -> how much the player move on the y-axis
 //   player.startLives -> starting lives of player
 //   player.lives -> lives of player
+//   player.startGems -> starting gems of player
+//   player.gems -> gems of player
 // }
 // I base the movements on the render function inside 'js/engine.js'
 //(row 135 ->  ... ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83); ...)
@@ -118,6 +120,8 @@ var Player = function(){
   this.moveY = 83;
   this.startLives = 3;
   this.lives = this.startLives;
+  this.startGems = 0;
+  this.gems = this.startGems;
 };
 
 Player.prototype.render = function(){
@@ -154,6 +158,7 @@ Player.prototype.handleInput = function(key){
   if ( y < 53 ){
     y = this.startY;
     x = this.startX;
+    this.gems++;
   }
 
   this.x = x;
