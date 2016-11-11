@@ -121,6 +121,14 @@ Player.prototype.handleInput = function(key){
 };
 
 Player.prototype.collisionCheck = function(enemiesList) {
+  var lineN = ( this.y - 53 ) / 83
+    bug = enemiesList[lineN];
+
+  if( !( ((this.x + this.offset) < bug.x && (this.x + this.width - this.offset) <= bug.x) || ((this.x + this.offset) >= (bug.x + bug.width)) ) ){
+    this.x = this.startX;
+    this.y = this.startY;
+    this.lives--;
+  }
 };
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
