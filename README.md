@@ -1,7 +1,7 @@
 ## frontend-nanodegree-arcade-game
 
 This is my arcade game project for the **Front-End Web Developer Nanodegree**.
-I really hope you all would enjoy my first ever games :)
+I really hope you all would enjoy my first ever game :)
 
 ## Run the project
 
